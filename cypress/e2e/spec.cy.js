@@ -3,7 +3,7 @@
 describe('Toast', () => {
   it(
     'shows the expected message',
-    { scrollBehavior: 'center' },
+    { scrollBehavior: 'nearest' },
     () => {
       cy.visit('/toast').wait(1000)
       cy.contains('basic-doc button', 'Show').click()
