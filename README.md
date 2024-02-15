@@ -4,6 +4,8 @@
 
 ![Toast](./images/toast.png)
 
+📺 Watch the video [Quick Toast Test](https://youtu.be/Kl6H3258wCQ).
+
 ## Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2024
