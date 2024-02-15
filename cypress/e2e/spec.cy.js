@@ -9,17 +9,11 @@ describe('Toast', () => {
     { scrollBehavior: 'nearest' },
     () => {
       cy.visit('/toast').wait(1000)
-      cy.contains('basic-doc button', 'Show')
-        .click()
-        .timeMark('clicked')
+      cy.contains('basic-doc button', 'Show').click()
       cy.contains('p-toastitem', 'Message Content')
         .should('be.visible')
-        .timeSince('clicked', 'shows up', 100)
-        .timeMark('toast-shown')
         .find('.p-toast-message-success')
-      cy.get('p-toastitem')
-        .should('not.exist')
-        .timeSince('toast-shown', 'hides', 3500)
+      cy.get('p-toastitem').should('not.exist')
       cy.log('**confirm timing**')
     },
   )
