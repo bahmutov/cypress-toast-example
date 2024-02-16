@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 // https://github.com/bahmutov/cypress-time-marks
-import 'cypress-time-marks'
+import 'cypress-time-marks' // v1.6.0+
 
 describe('Toast', () => {
   it(
@@ -14,15 +14,16 @@ describe('Toast', () => {
       cy.contains('basic-doc button', 'Show')
         .click()
         .timeMark('clicked')
+
       cy.contains('p-toastitem', 'Message Content')
         .should('be.visible')
-        .timeSince('clicked', 'shows up', 100)
         .timeMark('toast-shown')
         .find('.p-toast-message-success')
-      cy.get('p-toastitem')
-        .should('not.exist')
-        .timeSince('toast-shown', 'hides', 3500)
+      cy.get('p-toastitem').should('not.exist').timeMark('hides')
+
       cy.log('**confirm timing**')
+      cy.timeBetween('clicked', 'toast-shown', 'shows up', 100, true)
+      cy.timeBetween('toast-shown', 'hides', 3500, true)
     },
   )
 })
